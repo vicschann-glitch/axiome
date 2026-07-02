@@ -626,6 +626,63 @@
             .footer-container { flex-direction: column; text-align: center; }
             .footer-col ul li a { justify-content: center; }
         }
+        /* ==========================================================================
+           9. RESPONSIVE DESIGN (MOBILES & TABLETTES)
+           ========================================================================== */
+        @media (max-width: 768px) {
+            /* --- Typographie et Espacements --- */
+            h1 { font-size: 2.2rem !important; }
+            h2 { font-size: 1.8rem !important; }
+            p { font-size: 1.05rem !important; }
+            
+            /* --- Navigation --- */
+            nav { justify-content: center; padding: 0; }
+            nav .logo { left: 50%; transform: translateX(-50%); }
+            nav ul { display: none; } /* Masqué sur mobile pour le moment */
+            
+            /* --- Accueil --- */
+            #accueil { padding: 120px 15px 40px; }
+            
+            /* --- Qui sommes-nous --- */
+            .profiles-container { flex-direction: column; gap: 30px; }
+            .profile-card { min-width: 100%; padding: 20px; box-sizing: border-box; }
+            
+            /* --- Vision --- */
+            .vision-section { padding: 50px 15px; }
+            
+            /* --- Tarifs & Carrousel --- */
+            .tarifs-section { padding: 60px 15px; }
+            .carousel-container { height: 600px; } /* Adapté à la hauteur de la carte mobile */
+            .tarif-card { width: 85%; padding: 30px 15px; }
+            
+            /* Astuce pour le carrousel mobile : on cache les côtés */
+            .tarif-card.left, .tarif-card.right { 
+                opacity: 0 !important; 
+                pointer-events: none; 
+                transform: translateX(0) scale(0.8); 
+            }
+            .tarif-card.active { transform: translateX(0) scale(1); }
+            
+            .adhesion-box { margin-top: 50px; padding: 25px 20px; width: 90%; box-sizing: border-box; }
+            .premium-list li { font-size: 1rem; align-items: flex-start; }
+            .premium-list li::before { margin-top: 2px; }
+            
+            /* --- PDFs --- */
+            .fiches-section { padding: 60px 15px; }
+            
+            /* --- Réservation --- */
+            .reservation-section { padding: 60px 15px; }
+            .single-booking-card { padding: 30px 20px; width: 90%; box-sizing: border-box; }
+            .calendly-btn-large { width: 100%; box-sizing: border-box; padding: 15px 10px; font-size: 1.1rem; }
+            
+            /* --- Avis --- */
+            .avis-section { padding: 60px 15px; }
+            .avis-container { flex-direction: column; gap: 20px; }
+            
+            /* --- Footer --- */
+            .footer-container { gap: 30px; }
+        }
+
     </style>
 </head>
 <body>
