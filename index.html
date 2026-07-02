@@ -31,69 +31,86 @@
            ========================================================================== */
         nav {
             background-color: #0f172a; 
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80px; 
-            display: flex;
-            align-items: center;
-            justify-content: flex-end; 
-            padding-right: 120px; 
-            box-sizing: border-box;
-            z-index: 1000;
-            transition: all 0.4s ease;
+            position: fixed; top: 0; left: 0; width: 100%; height: 80px;
+            display: flex; align-items: center; justify-content: flex-start;
+            padding: 0 50px; box-sizing: border-box; z-index: 1000;
+            transition: all 0.3s ease;
         }
 
-        nav .logo {
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-            letter-spacing: 2px;
-            position: absolute;
-            left: 50px; 
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        nav ul li a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #38bdf8;
-        }
-
-        /* --- Effet au défilement (Scrolled) --- */
+        /* Rétractation de la barre au défilement */
         nav.scrolled {
+            height: 70px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            height: 70px; 
         }
 
+        /* --- LE LOGO --- */
+        nav .logo {
+            position: absolute; left: 50px;
+            color: #ffffff; font-size: 28px; font-weight: 800;
+            text-decoration: none; letter-spacing: 4px;
+            transition: all 0.4s ease; z-index: 1001;
+        }
+
+        /* Le logo glisse au centre au scroll */
         nav.scrolled .logo {
             left: 50%;
             transform: translateX(-50%);
-            font-size: 28px;
-            letter-spacing: 4px;
         }
 
-        nav.scrolled ul {
-            opacity: 0;
-            pointer-events: none; 
-            transform: translateY(-10px); 
+        /* --- LA NAVIGATION HORIZONTALE EN TEXTE --- */
+        .nav-horizontale {
+            display: flex; list-style: none; gap: 30px;
+            position: absolute; right: 120px; /* Se place juste à côté du hamburger */
+            margin: 0; padding: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
+
+        /* Elle disparait au scroll */
+        nav.scrolled .nav-horizontale {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .nav-horizontale li a {
+            color: #cbd5e1; text-decoration: none; font-size: 1rem; transition: color 0.3s;
+        }
+        .nav-horizontale li a:hover { color: #38bdf8; }
+
+        /* --- LE BOUTON HAMBURGER (Toujours là) --- */
+        .hamburger {
+            display: flex; flex-direction: column; gap: 6px; cursor: pointer;
+            position: absolute; right: 50px; z-index: 1001;
+        }
+        
+        .hamburger span {
+            width: 30px; height: 3px; background-color: #ffffff; border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Animation de la croix (X) */
+        .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        /* --- LE MENU DÉROULANT --- */
+        .nav-deroulante {
+            position: absolute; top: 100%; left: 0; width: 100%;
+            background-color: #0f172a; display: flex; flex-direction: column;
+            align-items: center; margin: 0; padding: 0;
+            max-height: 0; overflow: hidden; /* Caché par défaut */
+            transition: max-height 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3); list-style: none;
+        }
+        
+        /* Révélation au clic */
+        .nav-deroulante.active { max-height: 350px; }
+        
+        .nav-deroulante li { width: 100%; text-align: center; }
+        .nav-deroulante li a {
+            display: block; padding: 15px 0; border-top: 1px solid #1e293b;
+            color: #cbd5e1; text-decoration: none; font-size: 1.1rem; transition: all 0.3s;
+        }
+        .nav-deroulante li a:hover { color: #38bdf8; background-color: #1e293b; }
 
         /* ==========================================================================
            2. SECTION : ACCUEIL (HERO)
@@ -635,10 +652,56 @@
             h2 { font-size: 1.8rem !important; }
             p { font-size: 1.05rem !important; }
             
-            /* --- Navigation --- */
-            nav { justify-content: center; padding: 0; }
-            nav .logo { left: 50%; transform: translateX(-50%); }
-            nav ul { display: none; } /* Masqué sur mobile pour le moment */
+           /* --- Navigation Mobile --- */
+            .nav-horizontale { display: none !important; } /* On cache les liens textes */
+            nav { padding: 0 20px; justify-content: space-between; }
+            /* Le logo et le hamburger restent fixes sur les bords, sans se centrer */
+            nav .logo, nav.scrolled .logo { position: static; transform: none; left: auto; font-size: 22px; }
+            .hamburger { position: static; }
+            
+            /* Afficher le bouton Hamburger */
+            .hamburger { display: flex; }
+            
+            /* Menu déroulant caché vers le haut par défaut */
+            nav ul {
+                position: absolute;
+                top: 80px; /* En dessous de la barre de navigation */
+                left: 0;
+                width: 100%;
+                background-color: #0f172a;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            }
+            
+            /* Classe qui s'active pour dérouler le menu */
+            nav ul.active {
+                max-height: 300px;
+            }
+            
+            nav ul li { width: 100%; text-align: center; }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px 0;
+                border-top: 1px solid #1e293b;
+            }
+
+            /* Animation de la croix (X) pour le hamburger quand cliqué */
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0; /* La barre du milieu disparaît */
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
             
             /* --- Accueil --- */
             #accueil { padding: 120px 15px 40px; }
@@ -692,7 +755,21 @@
          ========================================================================== -->
     <nav id="navbar">
         <a href="#accueil" class="logo">AXIOME</a>
-        <ul>
+        
+        <ul class="nav-horizontale">
+            <li><a href="#qui-sommes-nous">Qui sommes-nous ?</a></li>
+            <li><a href="#tarifs">Nos formules et tarifs</a></li>
+            <li><a href="#fiches">Les fiches de révisions</a></li>
+            <li><a href="#contact">Réserver un cours</a></li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-deroulante" id="nav-menu">
             <li><a href="#qui-sommes-nous">Qui sommes-nous ?</a></li>
             <li><a href="#tarifs">Nos formules et tarifs</a></li>
             <li><a href="#fiches">Les fiches de révisions</a></li>
@@ -984,6 +1061,24 @@
             } else {
                 navbar.classList.remove('scrolled'); // Retire l'effet si on remonte
             }
+        });
+        // --- 3. Gestion du Menu Hamburger sur Mobile ---
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('#nav-menu li a');
+
+        // Ouvrir/Fermer le menu au clic sur le bouton Hamburger
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Fermer le menu automatiquement quand l'utilisateur clique sur un lien
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
         });
     </script>
 </body>
