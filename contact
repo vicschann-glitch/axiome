@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réserver un cours | Axiome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #f8fafc; color: #333; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        h1 { color: #0f172a; text-align: center; }
+        label { font-weight: 600; color: #475569; font-size: 0.9rem; }
+        input, textarea, select { width: 100%; padding: 12px; margin-top: 5px; margin-bottom: 20px; border: 1px solid #cbd5e1; border-radius: 4px; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        button { background-color: #0f172a; color: white; padding: 15px; width: 100%; border: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: background-color 0.3s; }
+        button:hover { background-color: #1d4ed8; }
+        .back-btn { text-decoration: none; color: #0284c7; font-weight: 600; display: inline-block; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Retour à l'accueil</a>
+        <h1>Demande de réservation</h1>
+        
+        <!-- REMPLACE LE LIEN ACTION CI-DESSOUS PAR TON LIEN FORMSPREE -->
+        <form action="https://formspree.io/f/TON_CODE_ICI" method="POST">
+            <label>Nom et Prénom du parent</label>
+            <input type="text" name="Nom" required>
+
+            <label>Email de contact</label>
+            <input type="email" name="Email" required>
+
+            <label>Téléphone</label>
+            <input type="tel" name="Téléphone" required>
+
+            <label>Classe de l'élève</label>
+            <input type="text" name="Classe" required>
+
+            <label>Matière et objectifs (Maths, Physique, Lacunes...)</label>
+            <textarea name="Objectifs" rows="4" required></textarea>
+
+            <button type="submit">Envoyer la demande</button>
+        </form>
+    </div>
+</body>
+</html>
