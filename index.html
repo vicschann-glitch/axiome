@@ -590,26 +590,33 @@
         }
 
         .footer-bottom p { font-size: 0.85rem; color: #475569; margin: 0; }
-        .contact-phones {
+        .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espace entre les deux numéros */
-    margin-top: 20px;
+    gap: 15px; /* Espace vertical entre l'email et les téléphones */
 }
 
-.phone-item {
+.contact-line {
     display: flex;
     align-items: center;
-    gap: 12px; /* Espace entre l'icône et le texte */
+    gap: 12px; /* Espace horizontal entre la petite icône et le texte */
     font-size: 1.1rem;
-    color: #0f172a; /* Le fameux bleu nuit d'Axiome */
 }
 
-.phone-item i {
-    color: #1d4ed8; /* Le bleu vif au survol de tes boutons pour faire ressortir l'icône */
+.contact-line i {
+    color: #94a3b8; /* Le gris clair bleuté de l'icône sur ta capture */
     font-size: 1.3rem;
 }
 
+.contact-line a, .contact-line span {
+    color: #60a5fa; /* Le bleu clair du texte sur ta capture */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-line a:hover {
+    text-decoration: underline;
+}
         @media (max-width: 768px) {
             .footer-container { flex-direction: column; text-align: center; }
             .footer-col ul li a { justify-content: center; }
@@ -931,26 +938,23 @@
             </div>
 
             <!-- Colonne Contact & Réseaux -->
-            <div class="footer-col">
-                <h4>Nous contacter</h4>
-                <ul class="social-links">
-                    <li>
-                        <a href="mailto:contact@axiome-cours.fr">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                            contact@axiome-cours.fr
-                        </a>
-                    </li>
-                    <div class="contact-phones">
-                    <div class="phone-item">
-                         <i class="fa-solid fa-phone"></i>
-                        <span><strong>Victor :</strong> 07 68 36 04 22</span>
-                    </div>
-                    <div class="phone-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <span><strong>Nathan :</strong> 06 95 88 48 18</span>
-                    </div>
-                </div>
-            </div>
+            <div class="contact-details">
+    <!-- Ligne E-mail existante -->
+    <div class="contact-line">
+        <i class="fa-solid fa-envelope"></i>
+        <a href="mailto:contact@axiome-cours.fr">contact@axiome-cours.fr</a>
+    </div>
+    
+    <!-- Nouvelles lignes Téléphone -->
+    <div class="contact-line">
+        <i class="fa-solid fa-phone"></i>
+        <span>Victor : 07 68 36 04 22</span>
+    </div>
+    <div class="contact-line">
+        <i class="fa-solid fa-phone"></i>
+        <span>Nathan : 06 95 88 48 18</span>
+    </div>
+</div>
 
                 <!-- <li>
                         <a href="https://instagram.com/ton_compte" target="_blank">
