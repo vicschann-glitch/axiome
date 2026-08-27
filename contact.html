@@ -23,10 +23,10 @@
         
         <!-- REMPLACE LE LIEN ACTION CI-DESSOUS PAR TON LIEN FORMSPREE -->
         <form action="https://formspree.io/f/mkjwlgnl" method="POST">
-            <label>Nom et Prénom du parent</label>
+            <label>Nom et Prénom</label>
             <input type="text" name="Nom" required>
 
-            <label>Email de contact</label>
+            <label>Email</label>
             <input type="email" name="Email" required>
 
             <label>Téléphone</label>
@@ -37,6 +37,27 @@
 
             <label>Matière et objectifs (Maths, Physique, Lacunes...)</label>
             <textarea name="Objectifs" rows="4" required></textarea>
+            <label>Disponibilités préférées (Plusieurs choix possibles)</label>
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 10px; margin-bottom: 25px;">
+                <label style="font-weight: 400; font-size: 0.95rem; display: flex; align-items: center; gap: 5px; color: #333;">
+                    <input type="checkbox" name="Disponibilités" value="Lundi-Mardi-Jeudi-Vendredi (Dès 17h)" style="width: auto; margin: 0;">
+                    Semaine (Dès 17h)
+                </label>
+                <label style="font-weight: 400; font-size: 0.95rem; display: flex; align-items: center; gap: 5px; color: #333;">
+                    <input type="checkbox" name="Disponibilités" value="Samedi matin" style="width: auto; margin: 0;">
+                    Samedi matin
+                </label>
+                <label style="font-weight: 400; font-size: 0.95rem; display: flex; align-items: center; gap: 5px; color: #333;">
+                    <input type="checkbox" name="Disponibilités" value="Samedi après-midi" style="width: auto; margin: 0;">
+                    Samedi après-midi
+                </label>
+                <label style="font-weight: 400; font-size: 0.95rem; display: flex; align-items: center; gap: 5px; color: #333;">
+                    <input type="checkbox" name="Disponibilités" value="Dimanche" style="width: auto; margin: 0;">
+                    Dimanche matin
+                </label>
+            </div>
+
+            <input type="hidden" name="_next" value="https://www.google.fr">
 
             <button type="submit">Envoyer la demande</button>
         </form>
