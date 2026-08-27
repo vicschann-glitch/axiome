@@ -590,6 +590,25 @@
         }
 
         .footer-bottom p { font-size: 0.85rem; color: #475569; margin: 0; }
+        .contact-phones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espace entre les deux numéros */
+    margin-top: 20px;
+}
+
+.phone-item {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espace entre l'icône et le texte */
+    font-size: 1.1rem;
+    color: #0f172a; /* Le fameux bleu nuit d'Axiome */
+}
+
+.phone-item i {
+    color: #1d4ed8; /* Le bleu vif au survol de tes boutons pour faire ressortir l'icône */
+    font-size: 1.3rem;
+}
 
         @media (max-width: 768px) {
             .footer-container { flex-direction: column; text-align: center; }
@@ -924,11 +943,11 @@
                     <div class="contact-phones">
                     <div class="phone-item">
                          <i class="fa-solid fa-phone"></i>
-                        <span><strong>Victor :</strong> 06 XX XX XX XX</span>
+                        <span><strong>Victor :</strong> 07 68 36 04 22</span>
                     </div>
                     <div class="phone-item">
                         <i class="fa-solid fa-phone"></i>
-                        <span><strong>Nathan :</strong> 06 XX XX XX XX</span>
+                        <span><strong>Nathan :</strong> 06 95 88 48 18</span>
                     </div>
                 </div>
             </div>
