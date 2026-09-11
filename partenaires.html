@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Partenaires | Axiome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="image/petit_logo.png">
+    <style>
+        body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.6; background-color: #f8fafc; padding: 20px; margin: 0; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; }
+        h1 { color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; font-size: 1.8rem; }
+        .back-btn { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #0284c7; font-weight: 600; text-align: left; width: 100%; }
+        .back-btn:hover { text-decoration: underline; }
+
+        /* Grille Partenaires */
+        .partners-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 50px; margin-top: 40px; }
+        .partner-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #0f172a; transition: transform 0.3s; }
+        .partner-item:hover { transform: translateY(-5px); }
+        .partner-item img { max-width: 140px; max-height: 80px; object-fit: contain; margin-bottom: 15px; transition: filter 0.3s; }
+        .partner-item:hover img { filter: grayscale(0%); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Retour à l'accueil</a>
+        
+        <h1>Nos collaborateurs et partenaires</h1>
+        
+        <div class="partners-grid">
+            <!-- Partenaire 1 -->
+            <a href="https://cours-de-sciences.fr/gestion.php" target="_blank" class="partner-item">
+                <img src="image/logo_cours_de_sciences.png" alt="Logo Partenaire 1">
+                <span>Plateforme d'exercices et de leçons du collège au supérieur.</span>
+            </a>
+            
+            <!-- Partenaire 2 -->
+            <a href="https://coachetudes.com" target="_blank" class="partner-item">
+                <img src="chemin/vers/logo2.png" alt="Logo CoachEtudes">
+                <span>Accompagnement et soutien scolaire sur Strasbourg et alentours.</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
